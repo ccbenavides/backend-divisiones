@@ -11,7 +11,7 @@ class DivisionController extends Controller
 {
     // request 
     public function list(Request $request){
-        $listado = Division::where('name', 'like', '%'.$request->search.'%')->orderBy('name')->paginate(10);
+        $listado = Division::where('name', 'like', '%'.$request->search.'%')->orderBy('name')->get();
         
         foreach ($listado as $key => $value) {
             $listado[$key] = (object)[
